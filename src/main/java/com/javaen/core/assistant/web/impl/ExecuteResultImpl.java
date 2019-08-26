@@ -54,10 +54,6 @@ public class ExecuteResultImpl<T> implements ExecuteResult<T> {
         return result;
     }
 
-    public Boolean isSucceed() {
-        return Boolean.TRUE.equals(this.succeed) ? Boolean.TRUE :Boolean.FALSE;
-    }
-
     public Boolean getSucceed() {
         return succeed;
     }
