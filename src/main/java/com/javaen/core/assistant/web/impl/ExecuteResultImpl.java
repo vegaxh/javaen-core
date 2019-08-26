@@ -36,6 +36,28 @@ public class ExecuteResultImpl<T> implements ExecuteResult<T> {
 
     private T data;
 
+
+    public static ExecuteResultImpl getInstance(Boolean succeed, String code,String message) {
+        ExecuteResultImpl<Object> result = new ExecuteResultImpl<Object>();
+        result.setSucceed(succeed);
+        result.setCode(code);
+        result.setMessage(message);
+        return result;
+    }
+
+    public static ExecuteResultImpl getInstance(Boolean succeed, String code,String message, String requestId) {
+        ExecuteResultImpl<Object> result = new ExecuteResultImpl<Object>();
+        result.setSucceed(succeed);
+        result.setCode(code);
+        result.setMessage(message);
+        result.setRequestId(requestId);
+        return result;
+    }
+
+    public Boolean isSucceed() {
+        return Boolean.TRUE.equals(this.succeed) ? Boolean.TRUE :Boolean.FALSE;
+    }
+
     public Boolean getSucceed() {
         return succeed;
     }
