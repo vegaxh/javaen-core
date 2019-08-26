@@ -24,6 +24,8 @@ import com.javaen.core.assistant.web.ExecuteResult;
  */
 public class ExecuteResultImpl<T> implements ExecuteResult<T> {
 
+    private static final long serialVersionUID = 9204653114545313313L;
+
     private Boolean succeed;
 
     private String code;
