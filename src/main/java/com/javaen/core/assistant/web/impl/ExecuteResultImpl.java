@@ -13,10 +13,9 @@ import com.javaen.core.assistant.web.ExecuteResult;
  * Copyright: Copyright (C) 2019 All Rights Reserved.
  * <br>
  *
+ *
+ *
  * @author: vegaxh
- * @email: vegaxh@gmail.com
- * @create time：2019/8/25 10:37
- * @version: v1.0
  * <p>
  * Date                 Author      Version     Description
  * ------------------------------------------------------------------

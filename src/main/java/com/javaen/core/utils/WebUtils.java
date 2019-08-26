@@ -11,10 +11,7 @@ package com.javaen.core.utils;
  * Copyright: Copyright (C) 2019 All Rights Reserved.
  * <br>
  *
- * @author: vegaxh
- * @email: vegaxh@gmail.com
- * @create time：2019/8/25 10:51
- * @version: v1.0
+ * @author: vegaxh 
  * <p>
  * Date                 Author      Version     Description
  * ------------------------------------------------------------------

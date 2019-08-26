@@ -12,9 +12,6 @@ package com.javaen.core.assistant.web;
  * <br>
  *
  * @author: vegaxh
- * @email: vegaxh@gmail.com
- * @create time：2019/8/25 10:18
- * @version: v1.0
  * <p>
  * Date                 Author      Version     Description
  * ------------------------------------------------------------------

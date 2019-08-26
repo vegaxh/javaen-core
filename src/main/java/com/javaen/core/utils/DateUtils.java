@@ -14,9 +14,6 @@ import java.text.SimpleDateFormat;
  * <br>
  *
  * @author: vegaxh
- * @email: vegaxh@gmail.com
- * @create time：2019/8/25 10:50
- * @version: v1.0
  * <p>
  * Date                 Author      Version     Description
  * ------------------------------------------------------------------
