@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat;
  * <p>
  * Date                 Author      Version     Description
  * ------------------------------------------------------------------
- * 2019/8/25 10:50     |vegaxh      |v1.0       |Create
+ * 2019/8/25 10:50     |vegaxh      |v1.0.0       |Create
  */
 public class DateUtils {
 

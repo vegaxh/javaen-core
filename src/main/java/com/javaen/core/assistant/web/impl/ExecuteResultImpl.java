@@ -19,7 +19,7 @@ import com.javaen.core.assistant.web.ExecuteResult;
  * <p>
  * Date                 Author      Version     Description
  * ------------------------------------------------------------------
- * 2019/8/25 10:37     |vegaxh      |v1.0       |Create
+ * 2019/8/25 10:37     |vegaxh      |v1.0.0       |Create
  */
 public class ExecuteResultImpl<T> implements ExecuteResult<T> {
 
