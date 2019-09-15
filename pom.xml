@@ -10,6 +10,14 @@
     <description>common utils</description>
     <name>javaen-core</name>
     <url>https://github.com/vegaxh/javaen-core</url>
+    <packaging>jar</packaging>
+
+    
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>9</version>
+    </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,146 +25,47 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
-    <packaging>jar</packaging>
+     <dependencies>
+         <!-- web begin Spring MVC Test Framework 需要 servlet-api 3.0 以上  -->
+         <dependency>
+             <groupId>javax.servlet</groupId>
+             <artifactId>javax.servlet-api</artifactId>
+             <version>4.0.1</version>
+             <scope>provided</scope>
+         </dependency>
+         <dependency>
+             <groupId>javax.servlet</groupId>
+             <artifactId>jsp-api</artifactId>
+             <version>2.0</version>
+             <scope>provided</scope>
+             <exclusions>
+                 <exclusion>
+                     <groupId>javax.servlet</groupId>
+                     <artifactId>servlet-api</artifactId>
+                 </exclusion>
+             </exclusions>
+         </dependency>
+     </dependencies>
+
 
     <licenses>
         <license>
-            <name>MIT License</name>
-            <url>https://opensource.org/licenses/MIT</url>
+            <name>GNU Lesser General Public License Version 3</name>
+            <url>http://www.gnu.org/licenses/lgpl.txt</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
-
+    <scm>
+        <tag>master</tag>
+        <url>https://github.com/vegaxh/javaen-core.git</url>
+        <connection>scm:git:https://github.com/vegaxh/javaen-core.git</connection>
+        <developerConnection>scm:git:https://github.com/vegaxh/javaen-core.git</developerConnection>
+    </scm>
     <developers>
         <developer>
-            <email>cquzjl@gmail.com</email>
-            <name>Jianling Zhou</name>
-            <url>https://github.com/Jimmie00x0000</url>
-            <id>Jimmie00x0000</id>
+            <name>vegaxh</name>
+            <email>vegaxh@gmail.com</email>
+             <url>https://github.com/vegaxh</url>
         </developer>
     </developers>
-
-    <issueManagement>
-        <url>https://github.com/Jimmie00x0000/PointCloudUtil/issues</url>
-        <system>GitHub Issues</system>
-    </issueManagement>
-    <scm>
-        <url>https://github.com/Jimmie00x0000/PointCloudUtil</url>
-        <connection>scm:git:https://git@github.com/Jimmie00x0000/PointCloudUtil.git</connection>
-    </scm>
-
-
-
-    <distributionManagement>
-        <snapshotRepository>
-            <id>sonatype</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>sonatype</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
-
-    <dependencies>
-
-    </dependencies>
-
-    <build>
-        <resources>
-            <resource>
-                <directory>${basedir}/src/main/resources</directory>
-            </resource>
-        </resources>
-        <testResources>
-            <testResource>
-                <directory>${basedir}/src/test/resources</directory>
-            </testResource>
-
-        </testResources>
-        <plugins>
-            <plugin>
-                <artifactId>maven-clean-plugin</artifactId>
-                <version>3.0.0</version>
-            </plugin>
-            <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>2.2.1</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar-no-fork</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>3.0.2</version>
-            </plugin>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
-            </plugin>
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.20.1</version>
-            </plugin>
-            <plugin>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.0.2</version>
-            </plugin>
-            <plugin>
-                <artifactId>maven-install-plugin</artifactId>
-                <version>2.5.2</version>
-            </plugin>
-            <plugin>
-                <artifactId>maven-site-plugin</artifactId>
-                <version>3.3</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>2.7</version>
-            </plugin>
-            <plugin>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>2.8.2</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.6</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                        <configuration>
-                            <keyname>${gpg.keyname}</keyname>
-                            <passphraseServerId>${gpg.keyname}</passphraseServerId>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.0.1</version>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
 </project>
