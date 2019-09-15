@@ -1,6 +1,5 @@
 package com.javaen.core.utils;
 
-import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -33,59 +32,43 @@ public class DateUtils {
     public static final String DATE_TIME_WITHOUT_SECONDS_PATTERN = "yyyy-MM-dd HH:mm";
 
 
-    public static final DateTimeFormatter DATETIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-    public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
-
     /**
-     * 获取当前日期
-     *
-     * @return
+     * @return 获取当前日期
      */
     public static LocalDate getCurrentLocalDate() {
         return LocalDate.now();
     }
 
     /**
-     * 返回当前时间
-     *
-     * @return
+     * @return 返回当前时间
      */
     public static LocalDateTime getCurrentLocalDateTime() {
         return LocalDateTime.now();
     }
 
     /**
-     * 返回年
-     *
-     * @return
+     * @return 返回年
      */
     public static int getYear() {
         return getCurrentLocalDateTime().getYear();
     }
 
     /**
-     * 返回月
-     *
-     * @return
+     * @return 返回月
      */
     public static int getMonth() {
         return getCurrentLocalDateTime().getMonth().getValue();
     }
 
     /**
-     * 返回天
-     *
-     * @return
+     * @return 返回天
      */
     public static int getDayOfMonth() {
         return getCurrentLocalDateTime().getDayOfMonth();
     }
 
     /**
-     * 返回当前月共有几天
-     *
-     * @return
+     * @return 返回当前月共有几天
      */
     public static int getLengthOfMonth() {
         return getCurrentLocalDate().lengthOfMonth();
@@ -117,10 +100,8 @@ public class DateUtils {
     }
 
     /**
-     * localDatetime 转 date
-     *
      * @param localDateTime
-     * @return
+     * @return localDatetime 转 date
      */
     public static Date localDateTime2Date(LocalDateTime localDateTime) {
         if (localDateTime == null) {
@@ -132,11 +113,9 @@ public class DateUtils {
     }
 
     /**
-     * 格式化日期
-     *
      * @param date
      * @param pattern
-     * @return
+     * @return 日期格式化字符串
      */
     public static String format(Date date, String pattern) {
         LocalDateTime localDateTime = date2LocalDateTime(date);
@@ -144,11 +123,9 @@ public class DateUtils {
     }
 
     /**
-     * 格式化日期
-     *
      * @param dateStr
      * @param pattern
-     * @return
+     * @return 格式化日期
      */
     public static Date parse(String dateStr, String pattern) {
         if (dateStr == null || "".equals(dateStr)) {
@@ -159,11 +136,9 @@ public class DateUtils {
     }
 
     /**
-     * 返回是否是同一天
-     *
      * @param calendar1
      * @param calendar2
-     * @return
+     * @return 返回是否是同一天
      */
     public static boolean isSameDay(Calendar calendar1, Calendar calendar2) {
         if (calendar1 == null || calendar2 == null) {
@@ -174,11 +149,9 @@ public class DateUtils {
     }
 
     /**
-     * 返回是否是同一天
-     *
      * @param date1
      * @param date2
-     * @return
+     * @return 返回是否是同一天
      */
     public static boolean isSameDay(Date date1, Date date2) {
         if (date1 == null || date2 == null) {
@@ -235,66 +208,54 @@ public class DateUtils {
 
 
     /**
-     * 相差几秒
-     *
      * @param date1
      * @param date2
-     * @return
+     * @return 相差几秒
      */
     public static long durationSeconds(Date date1, Date date2) {
         return duration(date1, date2, ChronoUnit.SECONDS);
     }
 
     /**
-     * 相差几分钟
-     *
      * @param date1
      * @param date2
-     * @return
+     * @return 相差几分钟
      */
     public static long durationMinutes(Date date1, Date date2) {
         return duration(date1, date2, ChronoUnit.MINUTES);
     }
 
     /**
-     * 相差几个小时
-     *
      * @param date1
      * @param date2
-     * @return
+     * @return 相差几个小时
      */
     public static long durationHours(Date date1, Date date2) {
         return duration(date1, date2, ChronoUnit.HOURS);
     }
 
     /**
-     * 相差几天
-     *
      * @param date1
      * @param date2
-     * @return
+     * @return 相差几天
      */
     public static long durationDays(Date date1, Date date2) {
         return duration(date1, date2, ChronoUnit.DAYS);
     }
 
     /**
-     * 相差几个月
-     *
      * @param date1
      * @param date2
-     * @return
+     * @return 相差几个月
      */
     public static long durationMonths(Date date1, Date date2) {
         return duration(date1, date2, ChronoUnit.MONTHS);
     }
 
     /**
-     * 相差几年
-     *
      * @param date1
      * @param date2
-     * @return
+     * @return 相差几年
      */
     public static long durationYears(Date date1, Date date2) {
         return duration(date1, date2, ChronoUnit.YEARS);
@@ -308,6 +269,22 @@ public class DateUtils {
         LocalDate localDate1 = date2LocalDate(date1);
         LocalDate localDate2 = date2LocalDate(date2);
         return localDate2.until(localDate1, chronoUnit);
+    }
+
+    /**
+     * @return 返回当天的起始时间
+     */
+    public static Date getStartTime() {
+        LocalDateTime localDateTime = LocalDateTime.now().withHour(0).withMinute(0).withSecond(0);
+        return localDateTime2Date(localDateTime);
+    }
+
+    /**
+     * @return 返回当天的结束时间
+     */
+    public static Date getEndTime() {
+        LocalDateTime localDateTime = LocalDateTime.now().withHour(23).withMinute(59).withSecond(59).withNano(999);
+        return localDateTime2Date(localDateTime);
     }
 
 
